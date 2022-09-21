@@ -1,0 +1,94 @@
+{
+  "atomCode" : "mysqlservice",
+  "execution" : {
+    "language" : "java",
+    "minimumVersion" : "1.8",
+    "demands" : [ ],
+    "target" : "java -jar ATOM_CODE-jar-with-dependencies.jar"
+  },
+  "input" : {
+    "imageName" : {
+      "label" : "MYSQL镜像",
+      "default" : "mysql:5.7",
+      "placeholder" : "请输入镜像信息",
+      "type" : "selector",
+      "desc" : "镜像",
+      "required" : true,
+      "disabled" : false,
+      "hidden" : false,
+      "isSensitive" : false,
+      "options": [
+        {
+          "id": "mysql:5.7",
+          "name": "mysql:5.7",
+          "desc": "",
+          "disabled": true
+        },
+        {
+          "id": "mysql:5",
+          "name": "mysql:5",
+          "desc": "",
+          "disabled": true
+        },
+        {
+          "id": "mysql:8",
+          "name": "mysql:8",
+          "desc": "",
+          "disabled": true
+        }
+      ]
+    },
+    "port" : {
+      "label" : "MYSQL登录端口",
+      "default" : "3306",
+      "placeholder" : "请输入端口信息",
+      "type" : "vuex-input",
+      "desc" : "登录端口默认3306",
+      "required" : true,
+      "disabled" : true,
+      "hidden" : false,
+      "isSensitive" : false
+    },
+    "mysqlPw" : {
+      "label" : "MYSQL登录密码",
+      "default" : "",
+      "placeholder" : "请输入密码信息",
+      "type" : "vuex-input",
+      "inputType": "password",
+      "desc" : "登录密码",
+      "required" : true,
+      "disabled" : false,
+      "hidden" : false,
+      "isSensitive" : true
+    },
+    "tipsLabel" : {
+      "label" : "",
+      "tipStr" : "下方输入框可以输出mysql命令。例如：CREATE DATABASE IF NOT EXISTS `test_mysql` DEFAULT CHARACTER SET utf8mb4;<br>使用mysql服务示例参考帮忙文档。",
+      "type" : "tips"
+    },
+    "initCmd" : {
+      "label" : "初始化脚本",
+      "default" : "",
+      "placeholder" : "",
+      "type" : "atom-ace-editor",
+      "lang": "sh",
+      "desc" : "MYSQL初始化脚本",
+      "required" : false,
+      "disabled" : false,
+      "hidden" : false,
+      "isSensitive" : false
+    }
+  },
+  "output" : {
+    "MYSQL_IP" : {
+      "description" : "MYSQL服务IP",
+      "type" : "string",
+      "isSensitive" : false
+    },
+    "MYSQL_PORT" : {
+      "description" : "MYSQL服务端口",
+      "type" : "string",
+      "isSensitive" : false
+    }
+  }
+}
